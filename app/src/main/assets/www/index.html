@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello World</title>
+		<script type="text/javascript">
+            function getApkInfo(){
+				try {
+					MAPlugin.hybridCallAction('hybrid://MAApkInfo:401/invokeApkInfo?0', function(callbackSucc){
+						alert(JSON.stringify(callbackSucc))
+					}, function(callbackFail){
+						alert(callbackFail)
+					});
+				} catch (err) {
+					alert(err)
+					console.log('初始化推送异常')
+				}
+            }
+        </script>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+			<p onclick="getApkInfo()">获取版本号</p>
+        </div>
+		
+    </body>
+</html>
